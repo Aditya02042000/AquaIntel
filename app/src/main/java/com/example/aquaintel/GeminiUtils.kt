@@ -13,8 +13,8 @@ data class AnalysisResult(
 
 object GeminiUtils {
     
-    private fun getModel(context: Context): GenerativeModel {
-        val apiKey = context.getString(R.string.gemini_api_key)
+    private fun getModel(): GenerativeModel {
+        val apiKey = BuildConfig.GEMINI_API_KEY
         return GenerativeModel(
             modelName = "gemini-1.5-flash",
             apiKey = apiKey
@@ -22,7 +22,7 @@ object GeminiUtils {
     }
 
     suspend fun analyzeReport(context: Context, reportText: String): AnalysisResult? = withContext(Dispatchers.IO) {
-        val model = getModel(context)
+        val model = getModel()
         val systemPrompt = """
             You are AquaIntel AI, a professional medical report analyzer. 
             Analyze the following medical report text and extract health metrics.
@@ -79,7 +79,7 @@ object GeminiUtils {
     }
 
     suspend fun getChatResponse(context: Context, history: List<ChatMessage>, userInput: String): String = withContext(Dispatchers.IO) {
-        val apiKey = context.getString(R.string.gemini_api_key)
+        val apiKey = BuildConfig.GEMINI_API_KEY
         val model = GenerativeModel(modelName = "gemini-1.5-flash", apiKey = apiKey)
         
         val systemContext = "You are AquaIntel AI, a helpful health assistant. You understand Hindi, English, and Hinglish. Always provide helpful health, nutrition, and wellness advice. If the user talks in Hindi or Hinglish, reply in Hinglish to be friendly and clear."

@@ -9,6 +9,13 @@ android {
     namespace = "com.example.aquaintel"
     compileSdk = 36
 
+    val localProperties = java.util.Properties()
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localProperties.load(localPropertiesFile.inputStream())
+    }
+    val geminiApiKey = localProperties.getProperty("gemini.api.key") ?: ""
+
     defaultConfig {
         applicationId = "com.example.aquaintel"
         minSdk = 24
@@ -16,6 +23,8 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "GEMINI_API_KEY", "\"$geminiApiKey\"")
     }
 
     buildTypes {
@@ -39,6 +48,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 

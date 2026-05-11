@@ -3,5 +3,5 @@
     <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
     <string name="fb_login_protocol_scheme">fbYOUR_FACEBOOK_APP_ID</string>
     <string name="facebook_client_token">YOUR_FACEBOOK_CLIENT_TOKEN</string>
-    <string name="gemini_api_key">AIzaSyDxUyj98UkDe_OdVEof0HJTC8fZS_xDtf0</string>
+    <string name="gemini_api_key">YOUR_API_KEY_HERE</string>
 </resources>

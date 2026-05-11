@@ -9,8 +9,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class AquaIntelChatModel {
-    // API Key from Google AI Studio
-    private val apiKey = "AIzaSyDxUyj98UkDe_OdVEof0HJTC8fZS_xDtf0"
+    // API Key is now read from BuildConfig for security
+    private val apiKey = BuildConfig.GEMINI_API_KEY
 
     private val safetySettings = listOf(
         SafetySetting(HarmCategory.HARASSMENT, BlockThreshold.NONE),
@@ -34,6 +34,9 @@ class AquaIntelChatModel {
     private var chat = model.startChat()
 
     suspend fun getChatResponse(userPrompt: String): String? = withContext(Dispatchers.IO) {
+        if (apiKey.isBlank()) {
+            return@withContext "Error: API Key is missing. Please add gemini.api.key to your local.properties file."
+        }
         try {
             val response = chat.sendMessage(userPrompt)
             response.text

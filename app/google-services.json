@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "116485377084",
+    "project_id": "aquaintel-74251",
+    "storage_bucket": "aquaintel-74251.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116485377084:android:161d8f7e2eab45184f0739",
+        "android_client_info": {
+          "package_name": "com.example.aquaintel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc1KF6M5KtepZiA6-QD_6-4m5HjaDn6is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

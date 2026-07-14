@@ -1,4 +1,4 @@
-# 💧 VitalCare
+# 💧 AquaIntel
 
 <div align="center">
 
